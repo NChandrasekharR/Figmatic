@@ -1,0 +1,40 @@
+{
+  "name": "figmatic",
+  "version": "1.0.0",
+  "description": "AI-powered UX critique for Figma designs",
+  "main": "dist/plugin.js",
+  "scripts": {
+    "build": "npm run build:plugin && npm run build:ui && npm run copy:manifest",
+    "build:plugin": "node esbuild.config.mjs",
+    "build:ui": "vite build",
+    "copy:manifest": "cp public/manifest.json dist/manifest.json",
+    "dev": "npm run build && npm run watch",
+    "watch": "npm-run-all --parallel watch:*",
+    "watch:plugin": "node esbuild.config.mjs --watch",
+    "watch:ui": "vite build --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://local_proxy@127.0.0.1:20574/git/NChandrasekharR/Figmatic"
+  },
+  "keywords": ["figma", "plugin", "ux", "design", "critique", "ai"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.121.0",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "esbuild": "^0.27.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.4",
+    "vite-plugin-singlefile": "^2.3.0"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "zustand": "^5.0.8"
+  }
+}

@@ -1,0 +1,417 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #333;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  padding: 16px;
+  min-height: 100vh;
+}
+
+/* Setup Screen */
+.setup-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.setup-screen h1 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.setup-screen p {
+  color: #666;
+  margin-bottom: 16px;
+}
+
+/* Form elements */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group select,
+.form-group input {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 12px;
+  background: #fff;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+  outline: none;
+  border-color: #0066ff;
+  box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.1);
+}
+
+.form-group input::placeholder {
+  color: #999;
+}
+
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-primary {
+  background: #0066ff;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #0052cc;
+}
+
+.btn-primary:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background: #eee;
+}
+
+.hint {
+  font-size: 11px;
+  color: #888;
+}
+
+.error {
+  color: #e53935;
+  font-size: 11px;
+  padding: 8px;
+  background: #ffebee;
+  border-radius: 4px;
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 24px;
+  gap: 16px;
+}
+
+.empty-state .icon {
+  font-size: 48px;
+  opacity: 0.5;
+}
+
+.empty-state h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.empty-state p {
+  color: #666;
+}
+
+/* Frame Preview */
+.frame-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.frame-info {
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.frame-icon {
+  width: 40px;
+  height: 40px;
+  background: #e9ecef;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.frame-details h3 {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.frame-details span {
+  font-size: 11px;
+  color: #666;
+}
+
+/* Loading State */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+  gap: 16px;
+}
+
+.loading-state .spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #eee;
+  border-top-color: #0066ff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-state p {
+  color: #666;
+}
+
+/* Critique Results */
+.critique-results {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.critique-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.critique-header h2 {
+  font-size: 14px;
+  font-weight: 600;
+  flex: 1;
+}
+
+.score-badge {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+.score-badge.high {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.score-badge.medium {
+  background: #fff3e0;
+  color: #ef6c00;
+}
+
+.score-badge.low {
+  background: #ffebee;
+  color: #c62828;
+}
+
+/* Severity Summary */
+.severity-summary {
+  display: flex;
+  gap: 8px;
+}
+
+.severity-pill {
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.severity-pill.critical {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.severity-pill.warning {
+  background: #fff3e0;
+  color: #ef6c00;
+}
+
+.severity-pill.suggestion {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+/* Issue Cards */
+.issues-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.issue-card {
+  padding: 12px;
+  border-radius: 8px;
+  border-left: 3px solid;
+}
+
+.issue-card.critical {
+  background: #ffebee;
+  border-left-color: #c62828;
+}
+
+.issue-card.warning {
+  background: #fff3e0;
+  border-left-color: #ef6c00;
+}
+
+.issue-card.suggestion {
+  background: #e3f2fd;
+  border-left-color: #1565c0;
+}
+
+.issue-card h4 {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.issue-card .element {
+  font-size: 10px;
+  color: #666;
+  margin-bottom: 6px;
+  font-family: monospace;
+}
+
+.issue-card p {
+  font-size: 11px;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.issue-card .recommendation {
+  font-size: 11px;
+  color: #333;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.issue-card .go-to-layer {
+  font-size: 11px;
+  color: #0066ff;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.issue-card .go-to-layer:hover {
+  color: #0052cc;
+}
+
+/* Strengths Section */
+.strengths {
+  padding: 12px;
+  background: #e8f5e9;
+  border-radius: 8px;
+}
+
+.strengths h3 {
+  font-size: 12px;
+  font-weight: 600;
+  color: #2e7d32;
+  margin-bottom: 8px;
+}
+
+.strengths ul {
+  list-style: none;
+  padding: 0;
+}
+
+.strengths li {
+  font-size: 11px;
+  color: #333;
+  padding: 4px 0;
+  padding-left: 16px;
+  position: relative;
+}
+
+.strengths li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #2e7d32;
+}
+
+/* Actions */
+.critique-actions {
+  display: flex;
+  gap: 8px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+/* Settings button */
+.settings-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.15s;
+}
+
+.settings-btn:hover {
+  opacity: 1;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.header h1 {
+  font-size: 16px;
+  font-weight: 600;
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Figmatic - UX Critique",
+  "id": "figmatic-ux-critique",
+  "api": "1.0.0",
+  "main": "plugin.js",
+  "ui": "index.html",
+  "editorType": ["figma"],
+  "networkAccess": {
+    "allowedDomains": [
+      "https://api.anthropic.com",
+      "https://api.openai.com",
+      "https://generativelanguage.googleapis.com",
+      "http://localhost:11434"
+    ]
+  }
+}
