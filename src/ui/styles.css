@@ -203,6 +203,35 @@ body {
   color: #666;
 }
 
+.loading-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.loading-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #999;
+}
+
+.loading-step.complete {
+  color: #2e7d32;
+}
+
+.loading-step.current {
+  color: #333;
+  font-weight: 500;
+}
+
+.loading-step .step-icon {
+  width: 16px;
+  text-align: center;
+}
+
 /* Critique Results */
 .critique-results {
   display: flex;
@@ -342,6 +371,43 @@ body {
 
 .issue-card .go-to-layer:hover {
   color: #0052cc;
+}
+
+/* Priorities Section */
+.priorities {
+  padding: 12px;
+  background: #fff3e0;
+  border-radius: 8px;
+}
+
+.priorities h3 {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e65100;
+  margin-bottom: 8px;
+}
+
+.priorities ol {
+  list-style: none;
+  padding: 0;
+  counter-reset: priority;
+}
+
+.priorities li {
+  font-size: 11px;
+  color: #333;
+  padding: 4px 0;
+  padding-left: 20px;
+  position: relative;
+  counter-increment: priority;
+}
+
+.priorities li::before {
+  content: counter(priority) ".";
+  position: absolute;
+  left: 0;
+  color: #e65100;
+  font-weight: 600;
 }
 
 /* Strengths Section */

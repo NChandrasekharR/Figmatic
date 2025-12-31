@@ -59,6 +59,17 @@ export function MainView() {
 
   const isLoading = status === 'capturing' || status === 'extracting' || status === 'analyzing';
 
+  // Get friendly model name
+  const getModelName = () => {
+    if (!config) return undefined;
+    const modelMap: Record<string, string> = {
+      'claude-sonnet-4-20250514': 'Claude Sonnet 4',
+      'claude-3-5-sonnet-20241022': 'Claude 3.5 Sonnet',
+      'claude-3-haiku-20240307': 'Claude Haiku',
+    };
+    return modelMap[config.model] || config.model;
+  };
+
   return (
     <div className="app">
       <div className="header">
@@ -87,7 +98,7 @@ export function MainView() {
       )}
 
       {/* Loading */}
-      {isLoading && <LoadingState status={status} />}
+      {isLoading && <LoadingState status={status} modelName={getModelName()} />}
 
       {/* Results */}
       {critique && (

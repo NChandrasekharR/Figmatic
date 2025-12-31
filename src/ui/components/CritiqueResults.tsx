@@ -91,6 +91,17 @@ export function CritiqueResults({ critique, onGoToLayer, onReanalyze }: Props) {
         ))}
       </div>
 
+      {critique.priorities && critique.priorities.length > 0 && (
+        <div className="priorities">
+          <h3>Fix These First</h3>
+          <ol>
+            {critique.priorities.map((p, i) => (
+              <li key={i}>{p}</li>
+            ))}
+          </ol>
+        </div>
+      )}
+
       {critique.strengths.length > 0 && (
         <div className="strengths">
           <h3>What's Working Well</h3>
